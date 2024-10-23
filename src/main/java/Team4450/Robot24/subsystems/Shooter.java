@@ -239,6 +239,11 @@ public class Shooter extends SubsystemBase {
         double topWheelSpeed = (Math.abs(topMotorEncoder.getVelocity()) / 60.0) * wheelRadius * 2 * Math.PI; // rpm -> m/s
         double bottomWheelSpeed = (Math.abs(bottomMotorEncoder.getVelocity()) / 60.0) * wheelRadius * 2 * Math.PI; // rpm -> m/s
         double averageWheelSpeed = 0.4 * 0.5 * (topWheelSpeed + bottomWheelSpeed); // average of top and bottom (0.4 arbitrary tuning const)
+        // Explanation for above calculation. Average should have been .5 * accum speed. It was incorrectly coded
+        // as .2 * accum speed. Since we ran all season with .2, we were reluctant to change it when the error was
+        // discovered. The calculation now reflects the correct .5 * accum speed and the .4 factor to the the same
+        // result as using .2, leaving the calculation "incorrect" but as we ran it, so no change in behavior.
+        // 10-15-24.
         return averageWheelSpeed;
     }
 

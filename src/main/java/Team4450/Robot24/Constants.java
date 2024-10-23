@@ -26,7 +26,7 @@ import edu.wpi.first.wpilibj.DriverStation;
  */
 public final class Constants
 {
-	public static String		PROGRAM_NAME = "ORF-05.22.24-CMP";
+	public static String		PROGRAM_NAME = "ORF-10.21.24-CMP";
 
 	public static Robot			robot;
 
@@ -52,7 +52,7 @@ public final class Constants
     public static final int     SHOOTER_MOTOR_PIVOT = 14;
     // public static final int     SHOOTER_MOTOR_PIVOT_2 = 15; // if we have to add one
 
-    public static final double  SHOOTER_SPEED = .5; //1; Reduced for demos.
+    public static final double  SHOOTER_SPEED = 1.0; //.5; Reduced for demos.
     public static final double  SHOOTER_FEED_SPEED = 1;
 
     // multiplied by shaft rotations to get degrees of shooter angle.
@@ -126,7 +126,7 @@ public final class Constants
         // Driving Parameters - Note that these are not the maximum capable speeds of
         // the robot, but instead they are the allowed maximum speeds
 
-        public static final double kMaxSpeedMetersPerSecond = 1.0;  // Speed limited for demos.
+        public static final double kMaxSpeedMetersPerSecond = 4.0;  // 1.0; Speed limited for demos.
         //public static final double kMaxSpeedMetersPerSecond = ModuleConstants.kDriveWheelFreeSpeedRps; // max speed
         public static final double kMaxAngularSpeed = 1.5 * (2 * Math.PI); // radians per second (1.5 rots / sec)
         public static final double kSlowModeFactor = .50; // 50% of normal.

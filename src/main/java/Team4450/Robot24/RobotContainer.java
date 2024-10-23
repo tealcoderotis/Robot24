@@ -35,6 +35,7 @@ import Team4450.Lib.NavX;
 import Team4450.Lib.Util;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
@@ -67,7 +68,7 @@ public class RobotContainer
 	public static PhotonVision	pvNoteCamera;
 	private final Intake       	intake;
 	private final ElevatedShooter elevShooter;
-	private final Candle        candle;
+	private Candle        		candle = null;
 	
 	// Subsystem Default Commands.
 
@@ -188,7 +189,8 @@ public class RobotContainer
 		pvNoteCamera = new PhotonVision(CAMERA_NOTE, PipelineType.OBJECT_TRACKING, CAMERA_NOTE_TRANSFORM);
 		intake = new Intake();
 		elevShooter = new ElevatedShooter();
-		candle = new Candle(CTRE_CANDLE, 8+26);
+
+		if (RobotBase.isReal()) candle = new Candle(CTRE_CANDLE, 8+26);
 
 		// Create any persistent commands.
 
@@ -200,7 +202,7 @@ public class RobotContainer
 		pvNoteCamera.setDefaultCommand(new UpdateVisionPose(pvNoteCamera, driveBase));
 		pvShooterCamera.setDefaultCommand(new UpdateVisionPose(pvShooterCamera, driveBase));
 
-		candle.setDefaultCommand(new UpdateCandle(candle));
+		if (RobotBase.isReal()) candle.setDefaultCommand(new UpdateCandle(candle));
 
 		// Set the default drive command. This command will be scheduled automatically to run
 		// every teleop period and so use the gamepad joy sticks to drive the robot. 
