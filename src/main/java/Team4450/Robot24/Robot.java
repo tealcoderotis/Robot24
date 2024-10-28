@@ -93,7 +93,7 @@ public class Robot extends TimedRobot
 
       SendableVersion.INSTANCE.init(PROGRAM_NAME);
 
-      // Note: under simulation, this information may not be not correct.
+      // Note: under simulation, this information will not be correct.
       Util.consoleLog("%s compiled by %s at %s (branch=%s, commit=%s)", SendableVersion.INSTANCE.getProgramVersion(),
           SendableVersion.INSTANCE.getUser(), SendableVersion.INSTANCE.getTime(), SendableVersion.INSTANCE.getBranch(),
           SendableVersion.INSTANCE.getCommit());

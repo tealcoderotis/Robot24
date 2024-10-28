@@ -243,11 +243,10 @@ public class PhotonVision extends SubsystemBase
     }
 
     /**
-     * Indicates if lastest camera results list contains targets. Must 
-     * call getLatestResult() before calling.
+     * Indicates if lastest camera results list contains targets. 
      * @return True if targets available, false if not.
      */
-    @Deprecated
+    //@Deprecated This appears to an error. Need to check with Cole.
     public boolean hasTargets()
     {
         getLatestResult();
@@ -408,6 +407,7 @@ public class PhotonVision extends SubsystemBase
         pipelineType = type;
 
         if (RobotBase.isSimulation()) setUpSimTargets();
+        
         // selectPipeline(type.ordinal());
     }
 
